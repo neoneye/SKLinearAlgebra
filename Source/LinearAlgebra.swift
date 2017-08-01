@@ -16,62 +16,62 @@ public protocol Copyable {
 }
 
 public protocol Comparable {
-    func ~=(lhs: Self, rhs: Self) -> Bool
-    func !~=(lhs: Self, rhs: Self) -> Bool
+    static func ~=(lhs: Self, rhs: Self) -> Bool
+    static func !~=(lhs: Self, rhs: Self) -> Bool
 }
 
-public protocol Vector: Equatable, Printable, Copyable, Comparable {
-    func +(lhs: Self, rhs: Self) -> Self
-    func +=(inout lhs: Self, rhs: Self)
-    func -(lhs: Self, rhs: Self) -> Self
-    func -=(inout lhs: Self, rhs: Self)
+public protocol Vector: Equatable, CustomStringConvertible, Copyable, Comparable {
+    static func +(lhs: Self, rhs: Self) -> Self
+    static func +=(lhs: inout Self, rhs: Self)
+    static func -(lhs: Self, rhs: Self) -> Self
+    static func -=(lhs: inout Self, rhs: Self)
 
-    func *(lhs: Self, rhs: Self) -> Float
+    static func *(lhs: Self, rhs: Self) -> Float
 
-    func *(lhs: Float, rhs: Self) -> Self
-    func *(lhs: Self, rhs: Float) -> Self
-    func *=(inout lhs: Self, rhs: Float)
-    func *(lhs: Int, rhs: Self) -> Self
-    func *(lhs: Self, rhs: Int) -> Self
-    func *=(inout lhs: Self, rhs: Int)
+    static func *(lhs: Float, rhs: Self) -> Self
+    static func *(lhs: Self, rhs: Float) -> Self
+    static func *=(lhs: inout Self, rhs: Float)
+    static func *(lhs: Int, rhs: Self) -> Self
+    static func *(lhs: Self, rhs: Int) -> Self
+    static func *=(lhs: inout Self, rhs: Int)
 
-    func /(lhs: Self, rhs: Float) -> Self
-    func /=(inout lhs: Self, rhs: Float)
-    func /(lhs: Self, rhs: Int) -> Self
-    func /=(inout lhs: Self, rhs: Int)
+    static func /(lhs: Self, rhs: Float) -> Self
+    static func /=(lhs: inout Self, rhs: Float)
+    static func /(lhs: Self, rhs: Int) -> Self
+    static func /=(lhs: inout Self, rhs: Int)
 
-    func ×(lhs: Self, rhs: Self) -> Self
+    static func ×(lhs: Self, rhs: Self) -> Self
 }
 
-public protocol Matrix: Equatable, Printable, Copyable, Comparable {
-    func *(lhs: Float, rhs: Self) -> Self
-    func *(lhs: Self, rhs: Float) -> Self
-    func *=(inout lhs: Self, rhs: Float)
-    func *(lhs: Int, rhs: Self) -> Self
-    func *(lhs: Self, rhs: Int) -> Self
-    func *=(inout lhs: Self, rhs: Int)
+public protocol Matrix: Equatable, CustomStringConvertible, Copyable, Comparable {
+    static func *(lhs: Float, rhs: Self) -> Self
+    static func *(lhs: Self, rhs: Float) -> Self
+    static func *=(lhs: inout Self, rhs: Float)
+    static func *(lhs: Int, rhs: Self) -> Self
+    static func *(lhs: Self, rhs: Int) -> Self
+    static func *=(lhs: inout Self, rhs: Int)
 
-    func /(lhs: Self, rhs: Float) -> Self
-    func /=(inout lhs: Self, rhs: Float)
-    func /(lhs: Self, rhs: Int) -> Self
-    func /=(inout lhs: Self, rhs: Int)
+    static func /(lhs: Self, rhs: Float) -> Self
+    static func /=(lhs: inout Self, rhs: Float)
+    static func /(lhs: Self, rhs: Int) -> Self
+    static func /=(lhs: inout Self, rhs: Int)
 }
 
-infix operator × { } // Cross product
+infix operator × // Cross product
 
-infix operator ~= { } // Equivalent
+infix operator ~= // Equivalent
 
-infix operator !~= { } // Not equivalent
+infix operator !~= // Not equivalent
 
-public func cross<T:Vector> (a: T, b: T) -> T {
+public func cross<T:Vector> (_ a: T, b: T) -> T {
     return a × b
 }
 
-public func magnitude<T: Vector> (vec: T) -> Float {
+public func magnitude<T: Vector> (_ vec: T) -> Float {
     return sqrt(vec * vec)
 }
 
-public func normalize<T: Vector> (vec: T) -> T {
+public func normalize<T: Vector> (_ vec: T) -> T {
     let vmag = magnitude(vec)
     if vmag == 0 {
         fatalError("Zero vector provided to normalize")
@@ -79,7 +79,7 @@ public func normalize<T: Vector> (vec: T) -> T {
     return vec / vmag
 }
 
-public func angle<T:Vector> (left: T, right: T) -> Float {
+public func angle<T:Vector> (_ left: T, right: T) -> Float {
     let ml = magnitude(left)
     let mr = magnitude(right)
     if ml == 0 || mr == 0 {
@@ -99,7 +99,7 @@ public func angle<T:Vector> (left: T, right: T) -> Float {
  *            { | /
  *
  */
-public func component<T:Vector> (a: T, b: T) -> Float {
+public func component<T:Vector> (_ a: T, b: T) -> Float {
     let bmag = magnitude(b)
     if bmag == 0 {
         fatalError("Zero vector provided to component")
@@ -109,7 +109,7 @@ public func component<T:Vector> (a: T, b: T) -> Float {
 
 /* proj_{b} a 
  */
-public func projection<T:Vector> (a: T, b: T) -> T {
+public func projection<T:Vector> (_ a: T, b: T) -> T {
     let magb = magnitude(b)
     if magb == 0 {
         fatalError("Zero vector provided to projection")

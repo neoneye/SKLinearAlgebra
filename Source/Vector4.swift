@@ -134,11 +134,11 @@ public func *(left: Int, right: SCNVector4) -> SCNVector4 {
     return Float(left) * right
 }
 
-public func *=(inout left: SCNVector4, right: Float) {
+public func *=(left: inout SCNVector4, right: Float) {
     left = left * right
 }
 
-public func *=(inout left: SCNVector4, right: Int) {
+public func *=(left: inout SCNVector4, right: Int) {
     left = left * right
 }
 
@@ -156,11 +156,11 @@ public func /(left: SCNVector4, right: Int) -> SCNVector4 {
     return left / Float(right)
 }
 
-public func /=(inout left: SCNVector4, right: Float) {
+public func /=(left: inout SCNVector4, right: Float) {
     left = left / right
 }
 
-public func /=(inout left: SCNVector4, right: Int) {
+public func /=(left: inout SCNVector4, right: Int) {
     left = left / right
 }
 
@@ -176,7 +176,7 @@ public func -(left: SCNVector4, right: SCNVector4) -> SCNVector4 {
     return SCNVector4(x: x, y: y, z: z, w: w)
 }
 
-public func -=(inout left: SCNVector4, right: SCNVector4) {
+public func -=(left: inout SCNVector4, right: SCNVector4) {
     left = left - right
 }
 
@@ -192,6 +192,6 @@ public func +(left: SCNVector4, right: SCNVector4) -> SCNVector4 {
     return SCNVector4(x: x, y: y, z: z, w: w)
 }
 
-public func +=(inout left: SCNVector4, right: SCNVector4) {
+public func +=(left: inout SCNVector4, right: SCNVector4) {
     left = left + right
 }

@@ -97,7 +97,7 @@ class Vector4Tests: XCTestCase {
             )
         }
 
-        self.measureBlock() {
+        self.measure() {
             for (a, b) in values {
                 let r = a * b
             }
