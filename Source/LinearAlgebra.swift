@@ -59,11 +59,11 @@ public protocol Matrix: Equatable, CustomStringConvertible, Copyable, Comparable
 
 infix operator × // Cross product
 
-infix operator ~= // Equivalent
+//infix operator ~= // Equivalent
 
 infix operator !~= // Not equivalent
 
-public func cross<T:Vector> (_ a: T, b: T) -> T {
+public func cross<T: Vector> (_ a: T, _ b: T) -> T {
     return a × b
 }
 
@@ -79,7 +79,7 @@ public func normalize<T: Vector> (_ vec: T) -> T {
     return vec / vmag
 }
 
-public func angle<T:Vector> (_ left: T, right: T) -> Float {
+public func angle<T: Vector> (_ left: T, _ right: T) -> Float {
     let ml = magnitude(left)
     let mr = magnitude(right)
     if ml == 0 || mr == 0 {
@@ -99,7 +99,7 @@ public func angle<T:Vector> (_ left: T, right: T) -> Float {
  *            { | /
  *
  */
-public func component<T:Vector> (_ a: T, b: T) -> Float {
+public func component<T:Vector> (_ a: T, _ b: T) -> Float {
     let bmag = magnitude(b)
     if bmag == 0 {
         fatalError("Zero vector provided to component")
@@ -109,7 +109,7 @@ public func component<T:Vector> (_ a: T, b: T) -> Float {
 
 /* proj_{b} a 
  */
-public func projection<T:Vector> (_ a: T, b: T) -> T {
+public func projection<T:Vector> (_ a: T, _ b: T) -> T {
     let magb = magnitude(b)
     if magb == 0 {
         fatalError("Zero vector provided to projection")

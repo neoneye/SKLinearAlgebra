@@ -70,7 +70,7 @@ extension SCNMatrix4: Matrix {
         return SCNMatrix4(m11: m11, m12: m12, m13: m13, m14: m14, m21: m21, m22: m22, m23: m23, m24: m24, m31: m31, m32: m32, m33: m33, m34: m34, m41: m41, m42: m42, m43: m43, m44: m44)
     }
 
-    subscript(row: Int, col: Int) -> Float {
+    public subscript(row: Int, col: Int) -> Float {
         get {
             assert((0 <= row && row < 4) && (0 <= col && col < 4), "Index out of range")
             switch row {
@@ -213,7 +213,7 @@ extension SCNMatrix4: Matrix {
     }
 }
 
-public func SCNMatrix4MakeColumns(_ x: SCNVector4, y: SCNVector4, z: SCNVector4, w: SCNVector4) -> SCNMatrix4 {
+public func SCNMatrix4MakeColumns(_ x: SCNVector4, _ y: SCNVector4, _ z: SCNVector4, _ w: SCNVector4) -> SCNMatrix4 {
     return SCNMatrix4(
         m11: x.x, m12: x.y, m13: x.z, m14: x.w,
         m21: y.x, m22: y.y, m23: y.z, m24: y.w,
@@ -323,8 +323,9 @@ public func /=(left: inout SCNMatrix4, right: Int) {
 
 // https://bitbucket.org/eigen/eigen/src/968c30931d04a35c8b02d1bb386e690b45dc275c/Eigen/src/LU/Determinant.h?at=default#cl-75
 private func detHelper(_ matrix: SCNMatrix4, _ j: Int, _ k: Int, _ m: Int, _ n: Int) -> Float {
-    return (matrix[j, 0] * matrix[k, 1] - matrix[k, 0] * matrix[j, 1])
-         * (matrix[m, 2] * matrix[n, 3] - matrix[n, 2] * matrix[m, 3])
+    let firstSubmatrix = (matrix[j, 0] * matrix[k, 1] - matrix[k, 0] * matrix[j, 1])
+    let secondSubmatrix = (matrix[m, 2] * matrix[n, 3] - matrix[n, 2] * matrix[m, 3])
+    return firstSubmatrix * secondSubmatrix
 }
 public func det(_ m: SCNMatrix4) -> Float {
     return detHelper(m, 0, 1, 2, 3)
@@ -352,12 +353,15 @@ public func inverse(_ m: SCNMatrix4) -> SCNMatrix4 {
     var lwork = __CLPK_integer(16)
     var work = [CFloat](repeating: 0.0, count: Int(lwork))
     var error: __CLPK_integer = 0
-    var nc = __CLPK_integer(4)
+    var leadingDimension = __CLPK_integer(4)
+    var rows = __CLPK_integer(4)
+    var cols = __CLPK_integer(4)
 
-    sgetrf_(&nc, &nc, &(grid), &nc, &ipiv, &error)
-    sgetri_(&nc, &(grid), &nc, &ipiv, &work, &lwork, &error)
+    sgetrf_(&rows, &cols, &(grid), &leadingDimension, &ipiv, &error)
+    sgetri_(&rows, &(grid), &leadingDimension, &ipiv, &work, &lwork, &error)
 
     assert(error == 0, "MatrixFloat not invertible")
 
     return SCNMatrix4(grid)
 }
+

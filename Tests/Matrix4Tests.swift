@@ -8,6 +8,7 @@
 
 import XCTest
 import SceneKit
+import SKLinearAlgebra
 
 // https://github.com/haginile/SwiftAccelerate
 

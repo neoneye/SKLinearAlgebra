@@ -8,6 +8,7 @@
 
 import XCTest
 import SceneKit
+import SKLinearAlgebra
 
 class Vector3Tests: XCTestCase {
 
@@ -23,20 +24,18 @@ class Vector3Tests: XCTestCase {
 
     func testEquatable() {
         let b = SCNVector3(x: 9, y: 5, z: 2)
-        let B = SCNVector3(x: 9, y: 5, z: 2)
-        let C = SCNVector3(x: 8, y: 5, z: 2)
+        let c = SCNVector3(x: 8, y: 5, z: 2)
 
         XCTAssertTrue(b == b, "Vector3 is equitable (==)")
-        XCTAssertTrue(b != C, "Vector3 is equitable (!=)")
+        XCTAssertTrue(b != c, "Vector3 is equitable (!=)")
     }
 
     func testEquivalence() {
         let b = SCNVector3(x: 9, y: 5, z: 2)
-        let B = SCNVector3(x: 9, y: 5, z: 2)
-        let C = SCNVector3(x: 8, y: 5, z: 2)
+        let c = SCNVector3(x: 8, y: 5, z: 2)
 
         XCTAssertTrue(b ~= b, "Vector4 is equitable (~=)")
-        XCTAssertTrue(b !~= C, "Vector4 is equitable (!~=)")
+        XCTAssertTrue(b !~= c, "Vector4 is equitable (!~=)")
     }
 
     func testCopy() {
@@ -44,11 +43,6 @@ class Vector3Tests: XCTestCase {
         let b = a.copy()
 
         XCTAssertEqual(a, b, "Vector 3 copy test 1")
-
-        /*b.x = 3
-        let c = SCNVector4(x: 3, y: 5, z: 2, w: 1)
-        XCTAssertEqual(b, c, "Vector 4 didn't mutate first")
-        XCTAssertNotEqual(a, b, "Vector 4 copy didn't mutate.")*/
     }
 
     func testSubscript() {

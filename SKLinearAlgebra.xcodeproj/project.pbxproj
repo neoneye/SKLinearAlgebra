@@ -10,22 +10,16 @@
 		C516E2CD1AC08CBE001EE581 /* Rotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516E2CC1AC08CBE001EE581 /* Rotations.swift */; };
 		C54B5F311A9D40A400ED329F /* Basis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5F301A9D40A400ED329F /* Basis.swift */; };
 		C54B5F331A9D563900ED329F /* Matrix4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B5F321A9D563900ED329F /* Matrix4Tests.swift */; };
-		C54B5F341A9D5C5100ED329F /* Matrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C581946E1A9D38A800A11626 /* Matrix4.swift */; };
 		C551E8081A9C3BE500BFDD3C /* SKLinearAlgebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C551E7FC1A9C3BE500BFDD3C /* SKLinearAlgebra.framework */; };
 		C551E80F1A9C3BE500BFDD3C /* SKLinearAlgebraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551E80E1A9C3BE500BFDD3C /* SKLinearAlgebraTests.swift */; };
 		C551E8191A9C3C0900BFDD3C /* LinearAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551E8181A9C3C0900BFDD3C /* LinearAlgebra.swift */; };
-		C551E81A1A9C3C2400BFDD3C /* LinearAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551E8181A9C3C0900BFDD3C /* LinearAlgebra.swift */; };
 		C58194631A9D029000A11626 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194621A9D029000A11626 /* Vector3.swift */; };
 		C58194651A9D040B00A11626 /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194641A9D040B00A11626 /* Vector4.swift */; };
-		C58194661A9D070300A11626 /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194641A9D040B00A11626 /* Vector4.swift */; };
-		C58194671A9D070300A11626 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194621A9D029000A11626 /* Vector3.swift */; };
 		C58194691A9D096E00A11626 /* Vector4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194681A9D096E00A11626 /* Vector4Tests.swift */; };
 		C581946B1A9D09D000A11626 /* Vector3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C581946A1A9D09D000A11626 /* Vector3Tests.swift */; };
 		C581946F1A9D38A800A11626 /* Matrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C581946E1A9D38A800A11626 /* Matrix4.swift */; };
 		C58194711A9D3A7700A11626 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194701A9D3A7700A11626 /* TypeAliases.swift */; };
-		C58194721A9D3C5600A11626 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58194701A9D3A7700A11626 /* TypeAliases.swift */; };
 		C59F4F6E1AC09DDD00607A9E /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F4F6D1AC09DDD00607A9E /* Nodes.swift */; };
-		C5E533781A9FA65C0057853F /* Accelerate.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C54C0B761A9ED37F00AED5A0 /* Accelerate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,20 +31,6 @@
 			remoteInfo = SKLinearAlgebra;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C5E533771A9FA64F0057853F /* Copy Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C5E533781A9FA65C0057853F /* Accelerate.framework in Copy Frameworks */,
-			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C516E2CC1AC08CBE001EE581 /* Rotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotations.swift; sourceTree = "<group>"; };
@@ -191,7 +171,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C551E8151A9C3BE500BFDD3C /* Build configuration list for PBXNativeTarget "SKLinearAlgebraTests" */;
 			buildPhases = (
-				C5E533771A9FA64F0057853F /* Copy Frameworks */,
 				C551E8031A9C3BE500BFDD3C /* Sources */,
 				C551E8041A9C3BE500BFDD3C /* Frameworks */,
 				C551E8051A9C3BE500BFDD3C /* Resources */,
@@ -212,16 +191,16 @@
 		C551E7F31A9C3BE500BFDD3C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Cameron Little";
 				TargetAttributes = {
 					C551E7FB1A9C3BE500BFDD3C = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 					};
 					C551E8061A9C3BE500BFDD3C = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -281,15 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C551E81A1A9C3C2400BFDD3C /* LinearAlgebra.swift in Sources */,
 				C54B5F331A9D563900ED329F /* Matrix4Tests.swift in Sources */,
-				C58194661A9D070300A11626 /* Vector4.swift in Sources */,
 				C581946B1A9D09D000A11626 /* Vector3Tests.swift in Sources */,
-				C58194671A9D070300A11626 /* Vector3.swift in Sources */,
 				C58194691A9D096E00A11626 /* Vector4Tests.swift in Sources */,
-				C58194721A9D3C5600A11626 /* TypeAliases.swift in Sources */,
 				C551E80F1A9C3BE500BFDD3C /* SKLinearAlgebraTests.swift in Sources */,
-				C54B5F341A9D5C5100ED329F /* Matrix4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,14 +286,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -363,14 +343,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -405,7 +391,7 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -419,7 +405,8 @@
 				PRODUCT_NAME = SKLinearAlgebra;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -442,7 +429,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.camlittle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SKLinearAlgebra;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -464,7 +452,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.camlittle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SKLinearAlgebraTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -482,7 +471,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.camlittle.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SKLinearAlgebraTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

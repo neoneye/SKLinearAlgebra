@@ -8,6 +8,7 @@
 
 import XCTest
 import SceneKit
+import SKLinearAlgebra
 
 class Vector4Tests: XCTestCase {
 
@@ -23,20 +24,18 @@ class Vector4Tests: XCTestCase {
 
     func testEquatable() {
         let b = SCNVector4(x: 9, y: 5, z: 2, w: 1)
-        let B = SCNVector4(x: 9, y: 5, z: 2, w: 1)
-        let C = SCNVector4(x: 8, y: 5, z: 2, w: 1)
+        let c = SCNVector4(x: 8, y: 5, z: 2, w: 1)
 
         XCTAssertTrue(b == b, "Vector4 is equitable (==)")
-        XCTAssertTrue(b != C, "Vector4 is equitable (!=)")
+        XCTAssertTrue(b != c, "Vector4 is equitable (!=)")
     }
 
     func testEquivalence() {
         let b = SCNVector4(x: 9, y: 5, z: 2, w: 1)
-        let B = SCNVector4(x: 9, y: 5, z: 2, w: 1)
-        let C = SCNVector4(x: 8, y: 5, z: 2, w: 1)
+        let c = SCNVector4(x: 8, y: 5, z: 2, w: 1)
 
         XCTAssertTrue(b ~= b, "Vector4 is equitable (~=)")
-        XCTAssertTrue(b !~= C, "Vector4 is equitable (!~=)")
+        XCTAssertTrue(b !~= c, "Vector4 is equitable (!~=)")
     }
 
     func testSubscript() {
@@ -53,11 +52,6 @@ class Vector4Tests: XCTestCase {
         let b = a.copy()
 
         XCTAssertEqual(a, b, "Vector 4 copy test 1")
-
-        /*b.x = 3
-        let c = SCNVector4(x: 3, y: 5, z: 2, w: 1)
-        XCTAssertEqual(b, c, "Vector 4 didn't mutate first")
-        XCTAssertNotEqual(a, b, "Vector 4 copy didn't mutate.")*/
     }
 
     func testVectorConversion4to3() {
@@ -78,11 +72,7 @@ class Vector4Tests: XCTestCase {
     }
 
     func testDotPerformanceExample() {
-        let a = SCNVector4(x: 0, y: 3, z: -7, w: 0)
-        let b = SCNVector4(x: 2, y: 3, z: 1, w: 0)
-        let result: Float = 2
-
-        let values = map(0...1000){ _ in
+        let values = (0...1000).map { _ in
             (
                 SCNVector4(
                     x: Float(arc4random()),
@@ -99,7 +89,7 @@ class Vector4Tests: XCTestCase {
 
         self.measure() {
             for (a, b) in values {
-                let r = a * b
+                _ = a * b
             }
         }
     }

@@ -30,7 +30,7 @@ extension SCNVector3: Vector {
         return "[\(x), \(y), \(z)]"
     }
 
-    subscript(i: Int) -> Float {
+    public subscript(i: Int) -> Float {
         assert(0 <= i && i < 3, "Index out of range")
         switch i {
         case 0:

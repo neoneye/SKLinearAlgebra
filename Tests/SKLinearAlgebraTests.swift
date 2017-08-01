@@ -8,6 +8,7 @@
 
 import XCTest
 import SceneKit
+@testable import SKLinearAlgebra
 
 private let EPSILON_LESS: Float = 0.001
 
@@ -45,14 +46,14 @@ class SKLinearAlgebraTests: XCTestCase {
         let b = SCNVector3(x: 2, y: 4, z: 6)
         let c = SCNVector3(x: -1, y: -2, z: -3)
 
-        XCTAssertEqualWithAccuracy(angle(a, a), Float(0), EPSILON_LESS, "Same vector is parallel")
-        XCTAssertEqualWithAccuracy(angle(a, b), Float(0), EPSILON_LESS, "Parallel vectors are parallel")
-        XCTAssertEqualWithAccuracy(angle(a, c), Float(M_PI), EPSILON_LESS, "Opposite vectors are opposite")
+        XCTAssertEqual(angle(a, a), Float(0), accuracy: EPSILON_LESS, "Same vector is parallel")
+        XCTAssertEqual(angle(a, b), Float(0), accuracy: EPSILON_LESS, "Parallel vectors are parallel")
+        XCTAssertEqual(angle(a, c), Float.pi, accuracy: EPSILON_LESS, "Opposite vectors are opposite")
 
         let p = SCNVector3(x: 4, y: 0, z: 7)
         let q = SCNVector3(x: -2, y: 1, z: 3)
 
-        XCTAssertEqualWithAccuracy(angle(p, q), Float(1.1252), EPSILON_LESS, "Random vectors have correct angle.")
+        XCTAssertEqual(angle(p, q), Float(1.1252), accuracy: EPSILON_LESS, "Random vectors have correct angle.")
     }
 
     func testVectorComponent() {
@@ -66,11 +67,11 @@ class SKLinearAlgebraTests: XCTestCase {
         let a = SCNVector3(x: 1, y: 2, z: 3)
         let b = SCNVector3(x: 1, y: 2, z: 3)
 
-        XCTAssertEqualWithAccuracy(component(a, b), magnitude(a), EPSILON, "equal vectors component returns magnitude")
+        XCTAssertEqual(component(a, b), magnitude(a), accuracy: EPSILON, "equal vectors component returns magnitude")
 
         let c = SCNVector3(x: -1, y: -2, z: -3)
 
-        XCTAssertEqualWithAccuracy(component(a, b), magnitude(a), EPSILON, "opposite vectors component returns magnitude")
+        XCTAssertEqual(component(a, c), magnitude(a), accuracy: EPSILON, "opposite vectors component returns magnitude")
 
         let d = SCNVector3(x: 0, y: 0, z: 2)
         let e = SCNVector3(x: 1, y: 0, z: 0)
